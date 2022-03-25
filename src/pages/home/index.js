@@ -6,7 +6,13 @@ const Home = () => {
     return (
         <div>
             <Searchbar />
-            <Gif url={data.url} title={data.title} />
+            <div className="list-gif">
+                {data.filter((item) => item.rating !== "g").map((item) => {
+                    return (
+                        <Gif key={item.id} url={item.url} title={item.title} />
+                    );
+                })}
+            </div>
         </div>
     );
 }

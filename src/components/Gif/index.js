@@ -1,9 +1,3 @@
-const Gif = ({title, url}) => {
-    return (
-        <div>
-            <img src={url} alt={title} />
-        </div>
-    );
-}
+const Gif = ({title, url}) => <img src={url} alt={title} />
 
 export default Gif;
