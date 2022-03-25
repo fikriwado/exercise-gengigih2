@@ -9,7 +9,10 @@ const Home = () => {
             <div className="list-gif">
                 {data.filter((item) => item.rating !== "g").map((item) => {
                     return (
-                        <Gif key={item.id} url={item.url} title={item.title} />
+                        <div className="list-item" key={item.id}>
+                            <Gif url={item.url} title={item.title} />
+                            <p>{item.title}</p>
+                        </div>
                     );
                 })}
             </div>
