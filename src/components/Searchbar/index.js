@@ -1,12 +1,22 @@
-const Searchbar = () => {
+import { useState } from "react";
+
+const Searchbar = ({ handleResultGifs }) => {
+    const [query, setQuery] = useState('');
+
+    const getGifs = async () => {
+        const gifs = await fetch(
+            'https://api.giphy.com/v1/gifs/search?api_key=' + process.env.REACT_APP_GIPHY_KEY + '&q=' + query + '&limit=12',
+        ).then((response) => response.json())
+        .then(json => json.data)
+        
+        handleResultGifs(gifs);
+    };
+
     return (
-        <div>
-            <h1>Hello Exercise Module 2 Session 1</h1>
-            <div style={{ paddingBottom: "25px" }}>
-                <input type="text" />
-                <button>Search</button>
-            </div>
-        </div>
+        <>
+            <input type="text" onChange={e => setQuery(e.target.value)} />
+            <button onClick={getGifs}>Search</button>
+        </> 
     );
 }
 

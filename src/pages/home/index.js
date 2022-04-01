@@ -1,16 +1,22 @@
+import { useState } from 'react';
 import Gif from "../../components/Gif";
 import Searchbar from "../../components/Searchbar";
-import data from "../../data.js";
 
 const Home = () => {
+    const [gifs, setGifs] = useState([]);
+
+    const handleResultGifs = gifs => {
+        setGifs(gifs);
+    };
+
     return (
         <div>
-            <Searchbar />
+            <Searchbar handleResultGifs={handleResultGifs} />
             <div className="list-gif">
-                {data.filter((item) => item.rating !== "g").map((item) => {
+                {gifs.map((item) => {
                     return (
                         <div className="list-item" key={item.id}>
-                            <Gif url={item.url} title={item.title} />
+                            <Gif url={item.images.fixed_width.url} title={item.title} />
                             <p>{item.title}</p>
                         </div>
                     );
