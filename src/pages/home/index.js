@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Gif from "../../components/Gif";
+import Gifs from "../../components/Gifs";
 import Searchbar from "../../components/Searchbar";
 
 const Home = () => {
@@ -12,16 +12,7 @@ const Home = () => {
     return (
         <div>
             <Searchbar handleResultGifs={handleResultGifs} />
-            <div className="list-gif">
-                {gifs.map((item) => {
-                    return (
-                        <div className="list-item" key={item.id}>
-                            <Gif url={item.images.fixed_width.url} title={item.title} />
-                            <p>{item.title}</p>
-                        </div>
-                    );
-                })}
-            </div>
+            <Gifs gifs={gifs} />
         </div>
     );
 }
