@@ -13,10 +13,10 @@ const Searchbar = ({ handleResultGifs }) => {
     };
 
     return (
-        <>
+        <div className="search-bar">
             <input type="text" onChange={e => setQuery(e.target.value)} />
-            <button onClick={getGifs}>Search</button>
-        </> 
+            <button className="btn-primary" onClick={getGifs}>Search</button>
+        </div> 
     );
 }
 

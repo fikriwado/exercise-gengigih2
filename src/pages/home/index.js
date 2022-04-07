@@ -1,19 +1,9 @@
-import { useState } from 'react';
-import Gifs from "../../components/Gifs";
-import Searchbar from "../../components/Searchbar";
-
 const Home = () => {
-    const [gifs, setGifs] = useState([]);
-
-    const handleResultGifs = gifs => {
-        setGifs(gifs);
-    };
-
     return (
-        <div>
-            <Searchbar handleResultGifs={handleResultGifs} />
-            <Gifs gifs={gifs} />
-        </div>
+        <>
+            <h1>Selamat Datang di Home</h1>
+            <img src="https://avatars.githubusercontent.com/u/60835073?v=4" width={200} />
+        </>
     );
 }
 
