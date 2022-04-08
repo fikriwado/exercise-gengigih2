@@ -7,7 +7,7 @@ function Searchbar({ handleResultGifs }) {
   const { query } = useSelector((state) => state.search);
   const dispatch = useDispatch();
 
-  const handleSubmit = async () => {
+  const handleSubmit = async() => {
     const images = await getGifs(query, 12);
     handleResultGifs(images);
   };
@@ -15,7 +15,7 @@ function Searchbar({ handleResultGifs }) {
   return (
     <div className="search-bar">
       <input type="text" onChange={(e) => dispatch(setQuery(e.target.value))} />
-      <button className="btn-primary" onClick={handleSubmit}>Search</button>
+      <button className="btn-primary" type="button" onClick={handleSubmit}>Search</button>
     </div>
   );
 }
