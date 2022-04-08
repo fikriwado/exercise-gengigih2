@@ -1,21 +1,20 @@
-import { useState } from "react";
+import { setQuery } from "../../redux/searchSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { getGifs } from "../../utils/fetchApi";
 
 const Searchbar = ({ handleResultGifs }) => {
-    const [query, setQuery] = useState('');
+    const { query } = useSelector((state) => state.search);
+    const dispatch = useDispatch();
 
-    const getGifs = async () => {
-        const gifs = await fetch(
-            'https://api.giphy.com/v1/gifs/search?api_key=' + process.env.REACT_APP_GIPHY_KEY + '&q=' + query + '&limit=12',
-        ).then((response) => response.json())
-        .then(json => json.data)
-        
-        handleResultGifs(gifs);
+    const handleSubmit = async () => {
+        const images = await getGifs(query, 12);
+        handleResultGifs(images);
     };
 
     return (
         <div className="search-bar">
-            <input type="text" onChange={e => setQuery(e.target.value)} />
-            <button className="btn-primary" onClick={getGifs}>Search</button>
+            <input type="text" onChange={e => dispatch(setQuery(e.target.value))} />
+            <button className="btn-primary" onClick={handleSubmit}>Search</button>
         </div> 
     );
 }
