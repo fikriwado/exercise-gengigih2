@@ -1,22 +1,23 @@
-import { setQuery } from "../../redux/searchSlice";
-import { useDispatch, useSelector } from "react-redux";
-import { getGifs } from "../../utils/fetchApi";
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getGifs } from '../../utils/fetchApi';
+import { setQuery } from '../../redux/searchSlice';
 
-const Searchbar = ({ handleResultGifs }) => {
-    const { query } = useSelector((state) => state.search);
-    const dispatch = useDispatch();
+function Searchbar({ handleResultGifs }) {
+  const { query } = useSelector((state) => state.search);
+  const dispatch = useDispatch();
 
-    const handleSubmit = async () => {
-        const images = await getGifs(query, 12);
-        handleResultGifs(images);
-    };
+  const handleSubmit = async () => {
+    const images = await getGifs(query, 12);
+    handleResultGifs(images);
+  };
 
-    return (
-        <div className="search-bar">
-            <input type="text" onChange={e => dispatch(setQuery(e.target.value))} />
-            <button className="btn-primary" onClick={handleSubmit}>Search</button>
-        </div> 
-    );
+  return (
+    <div className="search-bar">
+      <input type="text" onChange={(e) => dispatch(setQuery(e.target.value))} />
+      <button className="btn-primary" onClick={handleSubmit}>Search</button>
+    </div>
+  );
 }
 
 export default Searchbar;
