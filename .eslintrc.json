@@ -35,7 +35,16 @@
         "no-shadow": "off",
         "react/prop-types": "off",
         "react/no-array-index-key": "off",
+		"indent": ["error", 4],
+		"react/jsx-indent": ["error", 4],
+		"react/jsx-indent-props": ["error", 4],
         "quotes": ["error", "single"],
+        "no-alert": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/button-has-type": "off",
+        "jsx-a11y/label-has-associated-control": "off",
+        "no-use-before-define": "off",
+        "max-len": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }

@@ -7,24 +7,24 @@ import Search from './pages/Search';
 import Navbar from './components/Navbar';
 
 function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/trending">
-            <Trending />
-          </Route>
-          <Route path="/search">
-            <Search />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Router>
+                <Navbar />
+                <Switch>
+                    <Route path="/trending">
+                        <Trending />
+                    </Route>
+                    <Route path="/search">
+                        <Search />
+                    </Route>
+                    <Route path="/">
+                        <Home />
+                    </Route>
+                </Switch>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
