@@ -19,7 +19,7 @@ function Searchbar({ handleResultGifs }) {
         <Box w="350px" mx="auto" mt={10} mb={4}>
             <InputGroup>
                 <Input type="text" onChange={(e) => dispatch(setQuery(e.target.value))} />
-                <Button px={6} ml={2} bg="orange.400" color="white" onClick={handleSubmit}>Search</Button>
+                <Button px={6} ml={2} colorScheme="orange" color="white" onClick={handleSubmit}>Search</Button>
             </InputGroup>
         </Box>
     );

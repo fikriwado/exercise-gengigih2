@@ -19,6 +19,8 @@
     ],
     "rules": {
         "no-undef": "off",
+        "import/no-unresolved": "off",
+        "import/extensions": "off",
         "no-unused-vars": "warn",
         "require-jsdoc": 0,
         "comma-spacing": ["error", {"after": true}],
@@ -45,6 +47,6 @@
         "jsx-a11y/label-has-associated-control": "off",
         "no-use-before-define": "off",
         "max-len": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+        "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx", ".ts", ".tsx"]}]
     }
 }
